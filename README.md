@@ -1,0 +1,2 @@
+# easy-redirect
+So easy.
