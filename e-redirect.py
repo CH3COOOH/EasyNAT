@@ -36,7 +36,7 @@ def readAndExec(fname, n_loop=65535, debug=True):
 			else:
 				pr = param[1]
 				if param[2] == '0':
-					si = ''
+					si = '0.0.0.0'
 				elif param[2] in var_dict.keys():
 					si = var_dict[param[2]]
 				else:
