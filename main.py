@@ -29,7 +29,7 @@ def rule_to_iptbl(proto, src_ip, src_port, des_ip, des_port, isAdd):
 	if src_ip == '*':
 		iptbl_pre = 'iptables -t nat '+act+' PREROUTING -p '+proto+' --dport '+src_port+' -j DNAT --to-destination '+des_ip+':'+des_port
 	else:
-		iptbl_pre = 'iptables -t nat '+act+' PREROUTING -p '+proto+' -s '+src_ip+' --dport '+src_port+' -j DNAT --to-destination '+des_ip+':'+des_port
+		iptbl_pre = 'iptables -t nat '+act+' PREROUTING -p '+proto+' -d '+src_ip+' --dport '+src_port+' -j DNAT --to-destination '+des_ip+':'+des_port
 	iptbl_pos = 'iptables -t nat '+act+' POSTROUTING -p tcp -d '+des_ip+' --dport '+des_port+' -j MASQUERADE'
 	return iptbl_pre, iptbl_pos
 
